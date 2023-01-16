@@ -1,0 +1,45 @@
+{
+  "test": "not sure here",
+  "intervals": {
+    "probe": 200,
+    "probeSamples": 20,
+    "wifi": 60041,
+    "metric": 1009,
+    "temperature": 1000,
+    "config": 15083
+  },
+  "probeAdjustFactor": {
+    "pit": [
+      {
+        "A":0.605,
+        "B":2.36,
+        "C":0.1,
+        "R":1000.0
+      }
+    ],
+    "food": [
+      {
+        "A":0.605,
+        "B":2.36,
+        "C":0.1,
+        "R":1000.0
+      },
+      {
+        "A":0.605,
+        "B":2.36,
+        "C":0.1,
+        "R":1000.0
+      }
+    ]
+  },
+  "setpoint": 105.0,
+  "pid": {
+    "Kp": 1.0,
+    "Ki": 1.0,
+    "Kd": 1.0,
+    "proportionalOnMeasurement": true,
+    "enabled": true,
+    "range": 25.0
+  },
+  "alarmEnabled": true
+}

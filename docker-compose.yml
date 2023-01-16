@@ -1,0 +1,40 @@
+version: '3'
+services:
+  metrics:
+    image: influxdb:1.8
+    container_name: metrics
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+      - "8090:8090"
+      - "2003:2003"
+    env_file:
+      - 'env.influxdb'
+    volumes:
+      # Data persistency
+      # sudo mkdir -p /srv/docker/influxdb/data
+      - ./data/influxdb:/var/lib/influxdb
+
+  config:
+    image: nginx
+    container_name: config
+    ports:
+      - 8420:80
+    volumes:
+      - ./config:/usr/share/nginx/html
+
+  dashboard:
+    image: grafana/grafana:latest
+    container_name: dashboard
+    ports:
+      - "3000:3000"
+    env_file:
+      - 'env.grafana'
+    #user: "0"
+    links:
+      - metrics
+    volumes:
+      # Data persistency
+      # sudo mkdir -p /srv/docker/grafana/data; chown 472:472 /srv/docker/grafana/data
+      - ./data/grafana:/var/lib/grafana
+      - ./data/grafana-provisioning:/etc/grafana/provisioning
