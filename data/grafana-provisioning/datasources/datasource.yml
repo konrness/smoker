@@ -3,7 +3,7 @@ datasources:
   - name: InfluxDB
     type: influxdb
     access: proxy
-    database: db0
+    database: smoker
     user: admin
     password: admin
     url: http://metrics:8086

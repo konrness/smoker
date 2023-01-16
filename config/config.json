@@ -32,7 +32,7 @@
       }
     ]
   },
-  "setpoint": 105.0,
+  "setpoint": 105,
   "pid": {
     "Kp": 1.0,
     "Ki": 1.0,
@@ -41,5 +41,5 @@
     "enabled": true,
     "range": 25.0
   },
-  "alarmEnabled": true
+  "alarmEnabled": false
 }
