@@ -10,6 +10,7 @@ services:
       - "2003:2003"
     env_file:
       - 'env.influxdb'
+    user: "${USERID}:${GID}"
     volumes:
       # Data persistency
       # sudo mkdir -p /srv/docker/influxdb/data
@@ -30,7 +31,7 @@ services:
       - "3000:3000"
     env_file:
       - 'env.grafana'
-    #user: "0"
+    user: "${USERID}:${GID}"
     links:
       - metrics
     volumes:

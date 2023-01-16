@@ -1,8 +1,10 @@
 #!/bin/bash
+export USERID=$(id -u)
+export GID=$(id -g)
 
 docker-compose up -d
 
-sleep 5
+sleep 1
 
 echo "Grafana: http://127.0.0.1:3000 - admin/admin"
 
